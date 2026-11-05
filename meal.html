@@ -1,0 +1,119 @@
+<!--Meal Planner Page-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyCook for Meal Planner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">🍳 EasyCook</a>
+    <nav>
+      <a href="index.html">Recipe Finder</a>
+      <a class="active" href="meal.html">Meal Planner</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">PLAN YOUR MEALS</p>
+      <h1>Your weekly meal planner.</h1>
+      <p>Save your favourite recipes and organise your cooking plans.</p>
+    </section>
+
+    <!-- meal planner form -->
+    <section class="panel">
+      <h2>Add a Meal Plan</h2>
+
+      <form id="mealPlanForm">
+        <label for="planName">Meal or recipe name</label>
+        <input id="planName" type="text" placeholder="e.g. Chicken Curry" required>
+
+        <label for="planDay">Day</label>
+        <select id="planDay" required>
+          <option value="">Choose a day</option>
+          <option>Monday</option>
+          <option>Tuesday</option>
+          <option>Wednesday</option>
+          <option>Thursday</option>
+          <option>Friday</option>
+          <option>Saturday</option>
+          <option>Sunday</option>
+        </select>
+
+        <label for="planMealType">Meal type</label>
+        <select id="planMealType" required>
+          <option value="">Choose meal type</option>
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Dinner</option>
+          <option>Snack</option>
+        </select>
+
+        <label for="planServings">Number of servings</label>
+        <input id="planServings" type="number" min="1" max="50" value="2" required>
+
+        <label for="planNotes">Notes (optional)</label>
+        <textarea id="planNotes" rows="3" placeholder="Add ingredients or preparation notes..."></textarea>
+
+        <button type="submit">Save Meal Plan</button>
+
+        <button id="cancelEditBtn" type="button" class="secondary hidden">Cancel Edit</button>
+      </form>
+
+      <p id="plannerStatus" class="status" role="status"></p>
+    </section>
+
+    <!-- saved meal plans -->
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR COLLECTION</p>
+          <h2>Saved Meal Plans</h2>
+        </div>
+
+        <button id="clearPlansBtn" type="button" class="danger">
+          Clear All
+        </button>
+      </div>
+      <!-- meal plan results -->
+      <div id="mealPlanResults" class="plan-list"></div>
+
+      <!-- recipe cost calculation -->
+      <div class="panel calculation-panel">
+        <h3>Recipe Cost Calculator</h3>
+        <p>Add ingredients to calculate your total recipe cost and cost per serving.</p>
+        
+        <div id="ingredientRows">
+          <div class="calculator-row ingredient-row">
+            <label>Ingredient Name<input type="text" class="ingredient-name" placeholder="e.g. Chicken"></label>
+            <label>Cost (RM)<input type="number" class="ingredient-cost" min="0" step="0.01" placeholder="e.g. 12.00"></label>
+            <button type="button" class="secondary remove-ingredient">Remove</button>
+          </div>
+        </div>
+
+        <button type="button" id="addIngredientBtn" class="secondary">+ Add Ingredient</button>
+
+        <div class="calculator-row">
+          <label>Number of Servings<input id="servings" type="number" min="1" step="1" value="2"></label>
+        </div>
+
+        <button id="calculateBtn" type="button">Calculate Cost</button>
+        <p id="calculationResult" class="result-text" role="status">
+          Your calculation result will appear here.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>EasyCook 2026 — Plan smart, cook happy.</p>
+  </footer>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

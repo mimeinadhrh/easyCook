@@ -1,0 +1,523 @@
+
+:root {
+  --bg: #fffaf3;
+  --surface: #ffffff;
+  --primary: #d97745;
+  --primary-dark: #a84f28;
+  --text: #382c26;
+  --muted: #81736b;
+  --border: #eadfd4;
+  --soft: #f7eadc;
+  --danger: #b94141;
+  --radius: 18px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+.topbar {
+  min-height: 76px;
+  padding: 16px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav a {
+  padding: 9px 15px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--soft);
+  color: var(--primary-dark);
+}
+
+/* ---------- MAIN LAYOUT ---------- */
+
+.container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 58px 0 35px;
+}
+
+.hero h1 {
+  max-width: 760px;
+  margin: 6px 0 12px;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  line-height: 1.15;
+}
+
+.hero > p:last-child {
+  color: var(--muted);
+  max-width: 650px;
+}
+
+.eyebrow {
+  color: var(--primary-dark);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.panel {
+  padding: 25px;
+  margin: 20px 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 25px rgba(70, 45, 25, 0.04);
+}
+
+h2,
+h3 {
+  line-height: 1.3;
+}
+
+.panel h2,
+.section h2 {
+  margin-top: 0;
+}
+
+/* ---------- FORMS ---------- */
+
+.search-form {
+  display: flex;
+  gap: 10px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  margin: 5px 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #e6a17c;
+  outline-offset: 1px;
+}
+
+.search-form input {
+  margin: 0;
+  flex: 1;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 0 14px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.filters label {
+  font-weight: 600;
+}
+
+.filters button {
+  grid-column: 2;
+  justify-self: start;
+  margin-bottom: 12px;
+}
+
+/* ---------- BUTTONS ---------- */
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 11px 16px;
+  background: var(--primary);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+button.secondary {
+  background: var(--soft);
+  color: var(--primary-dark);
+}
+
+button.secondary:hover {
+  background: #efddc9;
+}
+
+button.danger {
+  background: var(--danger);
+  color: white;
+}
+
+.status {
+  min-height: 24px;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.status.error,
+.error {
+  color: var(--danger);
+}
+
+/* ---------- SECTIONS ---------- */
+
+.section {
+  margin: 38px 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin-bottom: 0;
+}
+
+/* ---------- RECIPE CARDS ---------- */
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.recipe-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 6px 18px rgba(70, 45, 25, 0.04);
+}
+
+.recipe-card img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: var(--soft);
+}
+
+.recipe-card-content {
+  padding: 17px;
+}
+
+.recipe-card h3 {
+  margin: 0 0 5px;
+}
+
+.recipe-card p {
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.card-actions button {
+  flex: 1;
+  font-size: 0.88rem;
+}
+
+/* ---------- RECIPE DETAILS DIALOG ---------- */
+
+dialog {
+  width: min(700px, 92%);
+  max-height: 85vh;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--surface);
+}
+
+dialog::backdrop {
+  background: rgba(35, 25, 20, 0.65);
+}
+
+.dialog-content {
+  position: relative;
+  padding: 28px;
+  overflow-y: auto;
+  max-height: 85vh;
+}
+
+.close-button {
+  position: sticky;
+  top: 0;
+  float: right;
+  padding: 7px 11px;
+}
+
+.detail-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.instructions {
+  white-space: pre-line;
+}
+
+/* ---------- MEAL PLANNER FORM ---------- */
+
+#mealPlanForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#mealPlanForm label {
+  font-weight: 650;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- RECIPE COST CALCULATOR ---------- */
+
+.calculation-panel {
+  background: #fff7ec;
+}
+
+.calculator-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 15px;
+}
+
+.calculator-row button {
+  align-self: start;
+}
+
+.result-text {
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* ---------- COMPACT INGREDIENT LAYOUT ---------- */
+
+/* Main container: ingredients and Add button */
+.ingredient-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Ingredient rows take remaining space */
+#ingredientRows {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+/* Ingredient Name | Cost | Remove */
+#ingredientRows .ingredient-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Input fields */
+#ingredientRows .ingredient-row label {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+#ingredientRows .ingredient-row input {
+  display: block;
+  width: 100%;
+  margin: 5px 0 0;
+}
+
+/* Remove button */
+#ingredientRows .remove-ingredient {
+  flex: 0 0 auto;
+  width: auto;
+  align-self: flex-end;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Add Ingredient button */
+.ingredient-controls #addIngredientBtn {
+  flex: 0 0 auto;
+  width: auto;
+  align-self: flex-end;
+  margin: 0 0 12px;
+  white-space: nowrap;
+}
+
+/* ---------- SAVED MEAL PLANS ---------- */
+
+.plan-list {
+  display: grid;
+  gap: 14px;
+}
+
+.plan-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.plan-card h3 {
+  margin: 8px 0;
+}
+
+.plan-card p {
+  margin: 5px 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.plan-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--primary-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+  padding: 25px 5%;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+
+@media (max-width: 700px) {
+
+  #ingredientRows .ingredient-row {
+    flex-wrap: wrap;
+  }
+
+  #ingredientRows .ingredient-row label {
+    flex: 1 1 150px;
+  }
+
+}
+
+@media (max-width: 650px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero {
+    padding-top: 35px;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .filters button {
+    grid-column: 1;
+  }
+
+  .section-heading,
+  .plan-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .calculator-row {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  .hero img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+

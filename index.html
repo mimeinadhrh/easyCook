@@ -1,0 +1,120 @@
+<!--Recipe Finder Page-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyCook for Recipe Finder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">🍳 EasyCook</a>
+    <nav>
+      <a class="active" href="index.html">Recipe Finder</a>
+      <a href="meal.html">Meal Planner</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <img
+        src="mealbanner.png" alt="Meal Banner"
+        style="width: 100%; height: 450px; object-fit: cover; border-radius: 8px;">
+    </section>
+
+    <!-- recipe finder section -->
+    <section class="panel">
+      <h2>Find a Recipe</h2>
+
+      <form id="searchForm" class="search-form">
+        <input
+          id="searchInput" type="text" placeholder="Search recipe name..." aria-label="Search recipe name">
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="filters">
+        <label for="categorySelect">Category</label>
+        <select id="categorySelect">
+          <option value="">Choose categories</option>
+        </select>
+
+        <label for="ingredientInput">Main ingredient</label>
+        <input id="ingredientInput" type="text" placeholder="e.g. chicken, rice, egg">
+        <button id="ingredientSearchBtn" type="button" class="secondary">Search Ingredient</button>
+      </div>
+
+      <p id="statusMessage" class="status" role="status"></p>
+    </section>
+
+    <!-- recipe results section -->
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">EXPLORE</p>
+          <h2>Recipe Results</h2>
+        </div>
+      </div>
+
+      <div id="recipeResults" class="recipe-grid"></div>
+    </section>
+
+    <!-- recipe suggestions section -->
+    <section class="panel">
+      <p class="eyebrow">DISCOVER NEW MEALS</p>
+      <h2>EasyCook Suggestions</h2>
+
+      <p>Choose your cooking preference and discover recipes recommended for you.</p>
+
+      <label for="suggestionPreference">Cooking Preference</label>
+
+      <select id="suggestionPreference">
+        <option value="">Choose a Cooking Preference</option>
+        <option value="chicken">Chicken Recipes</option>
+        <option value="seafood">Seafood Recipes</option>
+        <option value="vegetarian">Vegetarian Recipes</option>
+        <option value="beef">Beef Recipes</option>
+        <option value="random">Recommended Recipes</option>
+      </select>
+
+      <button id="showSuggestionsBtn" type="button" class="secondary">Get Suggestions</button>
+      <p id="suggestionStatus" class="status" role="status"></p>
+      <div id="suggestionResults" class="recipe-grid"></div>
+    </section>
+
+    <!-- saved recipes section -->
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR COLLECTION</p>
+          <h2>My Saved Recipes</h2>
+        </div>
+      </div>
+
+      <p>
+        View recipes you have saved from EasyCook Suggestions.
+      </p>
+
+      <p id="savedRecipeStatus" class="status" role="status"></p>
+
+      <div id="savedRecipeResults" class="recipe-grid"></div>
+    </section>
+  </main>
+
+  <!-- recipe details section -->
+  <dialog id="recipeDialog">
+    <div class="dialog-content">
+      <button id="closeDialogBtn" class="close-button" type="button" aria-label="Close">✕</button>
+
+      <div id="recipeDetails"></div>
+    </div>
+  </dialog>
+
+  <footer>
+    <p>EasyCook 2026 — Cook something wonderful.</p>
+  </footer>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
